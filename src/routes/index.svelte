@@ -10,10 +10,20 @@
 	let listProduct = new Array();
 
 	function handleSubmit() {
-		//alert(`submitted ${newProduct}`);
-		listProduct.push(newProduct);
 		console.log(newProduct);
-		console.log(listProduct);
+		let exist = false;
+		//alert(`submitted ${newProduct}`);
+		listProduct.forEach(function (pro) {
+			if (pro.name == newProduct.name && !exist) {		
+				pro.quantity = (pro.quantity + newProduct.quantity);
+				exist = true;
+				console.log(`${newProduct.quantity} + ${pro.quantity}`);
+			}
+		});
+		if (!exist) {
+			listProduct.push(newProduct);
+		}
+		newProduct=new Object();
 		doRerender++;
 	}
 
