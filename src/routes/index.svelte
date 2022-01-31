@@ -2,8 +2,56 @@
 	export const prerender = true;
 </script>
 
-<script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+<script>
+	import InputProduct from '$lib/components/InputProduct.svelte';
+	import ListProduct from '$lib/components/ListProduct.svelte';
+
+	let newProduct;
+	let listProduct = new Array();
+
+	function handleSubmit() {
+		//alert(`submitted ${newProduct}`);
+		listProduct.push(newProduct);
+		console.log(newProduct);
+		console.log(listProduct);
+		doRerender++;
+	}
+
+	const forceUpdate = async (_) => {};
+	let doRerender = 0;
+	/*
+// variables
+var count = 0;
+// targets
+var $add_button = $('#add_button');
+// when #add_button is clicked
+$add_button.on('click', function () {
+	// console.log('#add_button was clicked!');
+	// targets
+	var $user_input = $('#user_input').val().trim();
+	var $things_todo_ul = $('#things_todo');
+	var $thing = $(`<li class="list-group-item todo_li" id="todo-${count++}">
+							<div class="row mr-5">
+								<div class="col-md-10">
+									<p>${$user_input}</p>
+								</div>
+								<div class="col-md-2">
+									<button class="btn btn-outline-danger remove_button" item="${count}">Remove</button>
+								</div>
+							</div>
+						</li>`);
+	$things_todo_ul.append($thing);
+	// when .remove_button is clicked
+	$('.remove_button').on('click', function() {
+		$(this).parents('.todo_li').fadeOut();
+	});
+});
+*/
+	// NOTES:
+
+	// 	1. $(this) can be used on targeted jQuery elements.
+	// 	2. parents() method traverses the DOM for the targeted parameter
+	// 	3. fadeOut() is a cool jQuery function that performs an animation on a targeted element as it is removed from the DOM
 </script>
 
 <svelte:head>
@@ -11,52 +59,22 @@
 </svelte:head>
 
 <section>
-
-	<!--
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
+	<div class="container">
+		<div class="col-md-12">
+			<h3 class="text-center m-3">To-do List</h3>
+			<InputProduct bind:product={newProduct} on:submit={handleSubmit} />
+			<div class="col-md-3" />
 		</div>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<!--Counter />-->
+		<div class="col-md-12">
+			<div class="col-md-12" />
+			<div class="col-md-12">
+				<div class="col-md-3" />
+				<div class="col-md-6 card m-auto">
+					{#await forceUpdate(doRerender) then _}
+						<ListProduct bind:list={listProduct} />
+					{/await}
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
-<!--
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
--->

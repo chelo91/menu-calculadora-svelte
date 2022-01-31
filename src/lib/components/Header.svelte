@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
 </script>
 
 <header class="p-3 mb-3 border-bottom">
