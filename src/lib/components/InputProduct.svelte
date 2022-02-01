@@ -1,21 +1,22 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-
+	import {products} from './productData.js'
 	export let product = {
 		name: '',
 		quantity: 0
 	};
-
     const dispatch = createEventDispatcher();
 
     function returnProduct() {
 		dispatch('submit');
 	}
+	let myValue = null;
 
 </script>
 
 <div class="col-md-6 m-auto">
 	<div class="input-group mb-3">
+
 		<input
 			type="text"
 			class="form-control"
