@@ -1,6 +1,6 @@
 ### Build Step
 # pull the Node.js Docker image
-FROM node:16.2 as builder
+FROM node:17 as builder
 
 # change working directory
 WORKDIR /usr/src/app
@@ -19,7 +19,7 @@ RUN npm run build
 
 ### Serve Step
 # pull the Node.js Docker image
-FROM node:16.2.0-alpine3.13
+FROM node:17-alpine
 
 # change working directory
 WORKDIR /app
