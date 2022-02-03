@@ -14,7 +14,10 @@
 	const numbers = Array.from({ length: 50 }, (_, i) => i + 1);
 	
 	function returnProduct() {
-		dispatch('submit');
+		if(product.name != "" && product.quantity>1) {
+			product.name = product.name.charAt(0).toUpperCase() + product.name.slice(1);
+			dispatch('submit');
+		}
 	}
 </script>
 
@@ -49,7 +52,7 @@
 		
   </div>
   <div class="col">
-	<button class="btn btn-outline-success" type="button" id="addButton"  on:click={returnProduct}>Add</button>
+	<button class="btn btn-outline-success" type="button" id="addButton"  on:click={returnProduct}>Agregar</button>
 </div>
 </div>
 </div>

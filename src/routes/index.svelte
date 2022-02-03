@@ -43,16 +43,19 @@
 	#col-first, #col-second {
 		padding-bottom: 15px;
 	}
+	#col-second {
+		margin-bottom: 75px;
+	}
 </style>
 
 <svelte:head>
-<title>Home</title>
+<title>Contador de Productos</title>
 </svelte:head>
 
 <section>
 	<div class="container">
 		<div id="col-first" class="col-md-12">
-			<h3 class="text-center m-3">To-do List</h3>
+			<!--<h3 class="text-center m-3">To-do List</h3>-->
 			<InputProduct bind:product={newProduct} on:submit={handleSubmit} />
 			<div class="col-md-3" />
 		</div>
