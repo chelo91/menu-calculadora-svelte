@@ -14,7 +14,7 @@
 	const numbers = Array.from({ length: 50 }, (_, i) => i + 1);
 	
 	function returnProduct() {
-		if(product.name != "" && product.quantity>1) {
+		if(product.name != "" && product.quantity>0) {
 			product.name = product.name.charAt(0).toUpperCase() + product.name.slice(1);
 			dispatch('submit');
 		}
