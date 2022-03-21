@@ -25,17 +25,18 @@
 		});
 		if (!exist) {
 			listProduct.push(newProduct);
+			listProduct=listProduct;
 		}
 		newProduct = {
 			name: '',
 			quantity: ''
 		};
 		
-		doRerender++;
+		//doRerender++;
 	}
 	
-	const forceUpdate = async (_) => {};
-	let doRerender = 0;
+	//const forceUpdate = async (_) => {};
+	//let doRerender = 0;
 
 </script>
 
@@ -68,9 +69,9 @@
 		</div>
 		<div id="col-second" class="col-md-12">
 			<div class="col-md-7 card m-auto">
-				{#await forceUpdate(doRerender) then _}
+				<!--{#await forceUpdate(doRerender) then _}-->
 					<ListProduct bind:list={listProduct} />
-				{/await}
+				<!--{/await}-->
 			</div>
 		</div>
 	</div>
