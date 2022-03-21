@@ -69,7 +69,7 @@
 		<div id="col-second" class="col-md-12">
 			<div class="col-md-7 card m-auto">
 				<!--{#await forceUpdate(doRerender) then _}-->
-					<ListProduct bind:list={listProduct} />
+					<ListProduct list={listProduct} />
 				<!--{/await}-->
 			</div>
 		</div>
