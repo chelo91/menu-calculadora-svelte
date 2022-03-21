@@ -25,13 +25,12 @@
 		});
 		if (!exist) {
 			listProduct.push(newProduct);
-			listProduct=listProduct;
 		}
 		newProduct = {
 			name: '',
 			quantity: ''
 		};
-		
+		listProduct=listProduct;
 		//doRerender++;
 	}
 	
