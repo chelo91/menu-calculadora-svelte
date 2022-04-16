@@ -60,10 +60,10 @@
 			<div class="col-md-3" />
 		</div>
 		<div id="col-second" class="col-md-12">
-			<div class="col-md-6 card m-auto">
-				{#await forceUpdate(doRerender) then _}
-					<ListProduct bind:list={listProduct} />
-				{/await}
+			<div class="col-md-7 card m-auto">
+				<!--{#await forceUpdate(doRerender) then _}-->
+					<ListProduct list={listProduct} />
+				<!--{/await}-->
 			</div>
 		</div>
 	</div>
