@@ -8,7 +8,7 @@
 	
 	let newProduct = {
 		name: '',
-		quantity: ''
+		quantity: 0
 	};
 	let listProduct = new Array();
 	
@@ -28,7 +28,7 @@
 		}
 		newProduct = {
 			name: '',
-			quantity: ''
+			quantity: 0
 		};
 		listProduct=listProduct;
 		//doRerender++;
@@ -46,13 +46,6 @@
 	#col-second {
 		margin-bottom: 75px;
 	}
-
-	@media (min-width: 768px) and (max-width: 1199.98px) {
-		.container{
-		max-width: 960px !important;
-	}
-	}
-
 </style>
 
 <svelte:head>
@@ -67,10 +60,10 @@
 			<div class="col-md-3" />
 		</div>
 		<div id="col-second" class="col-md-12">
-			<div class="col-md-7 card m-auto">
-				<!--{#await forceUpdate(doRerender) then _}-->
-					<ListProduct list={listProduct} />
-				<!--{/await}-->
+			<div class="col-md-6 card m-auto">
+				{#await forceUpdate(doRerender) then _}
+					<ListProduct bind:list={listProduct} />
+				{/await}
 			</div>
 		</div>
 	</div>

@@ -21,19 +21,10 @@
 	}
 </script>
 
-<style>
-	#addButton {
-		width: 100%;
-	}
-	.col{
-		margin-bottom: 15px;
-	}
-</style>
-
 <div class="col-md-6 m-auto">
 
 <div class="row">
-	<div class="col col-7 col-sm-6">
+	<div class="col">
 		<Autocomplete 
 		id="cbo-0" 
 		name='example-1'
@@ -49,17 +40,18 @@
 			{/if}
 		</Autocomplete>	
 	</div>
-	<div class="col col-5 col-sm-3">
+	<div class="col">
 		<input
 		type="number"
 		class="form-control"
-		placeholder="Cantidad"
-		aria-label="Cantidad"
+		placeholder="something to do"
+		aria-label="something to do"
+		aria-describedby="input_todo"
 		id="inputNumber"
 		bind:value={product.quantity} />	
 		
   </div>
-  <div class="col col-12 col-sm-3">
+  <div class="col">
 	<button class="btn btn-outline-success" type="button" id="addButton"  on:click={returnProduct}>Agregar</button>
 </div>
 </div>
